@@ -23,11 +23,11 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
 {
     Eigen::Matrix4f model = Eigen::Matrix4f::Identity();
 
-    float rad = rotation_angle / 180.0f * acos(-1);
-    float cosA = cos(rad);
-    float sinA = sin(rad);
+    const float rad = rotation_angle / 180.0f * acos(-1);
+    const float cos_a = cos(rad);
+    const float sin_a = sin(rad);
     Eigen::Matrix4f rotation;
-    rotation << cosA, -sinA, 0, 0, sinA, cosA, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1;
+    rotation << cos_a, -sin_a, 0, 0, sin_a, cos_a, 0, 0, 0, 0, 1.0f, 0, 0, 0, 0, 1.0f;
 
     model = rotation * model;
 
